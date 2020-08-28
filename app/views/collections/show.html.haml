@@ -1,0 +1,40 @@
+.row
+  .menu-sidebar
+    =render 'layouts/partials/sidebar'
+  .main-content.collection-show
+    .row
+      .col-md-5.main-description
+        %span.uk-h2= @collection.collection_name
+        %br/
+        = @collection.collection_description_
+    .row.main-buttons
+      .col-md-6.col-sm-4
+        = render 'follow_button', collection: @collection
+        / -if current_user
+        /   =link_to t('follow'), follow_collection_path(@collection), id: "critic_11", class: "#{'followed' if current_user.followed_collection_ids.include?(@collection.id)} uk-button addCritics follow-button-#{@collection.slug}", remote: true
+        / -else
+        /   =link_to t('follow'), new_user_registration_path, id: "critic_11", class: "uk-button addCritics follow-button-#{@collection.slug}"
+    .row.film.padding-10
+      =render @titles
+      #results
+    .row
+      .col-md-12
+        %h4.main-heading=t('other_collections')
+    .row.padding-10
+      - Collection.all.each do |coll|
+        .col-md-3.col-sm-6
+          %p.uk-text-left.mtop
+            - if coll.image.present?
+              %a{:href => "/collections/#{coll.id}"}
+                %img.fabrikLightBoxImage{:alt => "#{coll.image.name}", :src => "#{coll.image.url(:custom)}"}/
+          %h3.uk-text-left.bottom-heading
+            %a{:href => "/"}
+              = coll.collection_name
+              %small
+                by #{User.find(coll.user_id).email}
+            -if current_user
+              =link_to t('follow'), follow_collection_path(coll), id: "collection_11", class: "#{'followed' if current_user.followed_collection_ids.include?(coll.id)} follow_btn_small follow-button-#{coll.slug}", remote: true
+            -else
+              =link_to t('follow'), follow_collection_path(coll), id: "collection_11", class: "follow_btn_small follow-button-#{coll.slug}", remote: true
+
+=pageless(@titles.total_pages, collection_path(@collection), '#results')

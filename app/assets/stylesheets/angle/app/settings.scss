@@ -1,0 +1,309 @@
+@import "helpers/variables";
+
+.top-block-info {
+  .profile-link.link {
+    &:before {
+      content: "\e801";
+      font-family: 'butaca';
+      color: white;
+      font-size: 24px;
+      position: relative;
+      top: 6px;
+      left: 6px;
+    }
+
+    background: #353942;
+    right: 75px;
+    border-radius: 3px;
+  }
+}
+.setting-color {
+  padding: 0 5px;
+
+  > label {
+    display: block;
+    position: relative;
+    margin: 0 10px;
+    border-radius: 3px;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,.1);
+    cursor: pointer;
+    
+    &:first-child { margin-left: 0}
+    &:last-child { margin-right: 0}
+    
+    $baseHg: 15px;
+    > .color {
+      display: block;
+      height: $baseHg * 1.2;
+    }
+    
+    > .split {
+      @include clearfix();
+      display: block;
+      > .color {
+        display: block;
+        height: $baseHg * 2.5;
+        &:first-child {
+          float: left;
+          width: 70%;
+        }
+        &:last-child {
+          float: right;
+          width: 30%;
+        }
+      }
+    }
+
+    // icon checked
+    > .icon-check {
+      position: absolute;
+      display: block;
+      left: 50%;
+      top: 50%;
+      width: 20px;
+      height: 20px;
+      margin-top: -20px;
+      margin-left: -10px;
+      text-align: center;
+      font-size: 1.33333333em;
+      vertical-align: -15%;
+      color: #fff;
+      opacity: 0;
+    }
+
+    > input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+      visibility: hidden;
+      &:checked + .icon-check {
+        opacity: 1 !important;
+      }
+    }
+  }
+}
+
+
+.main-content.my-profile.settings {
+  .container-fluid {
+    .row.top-block-info {
+      > div.col-md-12 {
+        height: auto;
+      } 
+      background: image-url('settings-background.png');
+      background-size: cover;
+      
+      .row.image-row {
+        margin-top: 80px;
+        margin-bottom: 30px;
+      }
+
+      .row .col-md-2 .profile-image-upload {
+        width: 120px;
+        margin: 0px auto;
+        position: relative;
+
+        input {
+          display: none;
+        }
+
+        .profile-image {
+          margin: 0px;
+          float: none;
+          height: 100%;
+
+          img {
+            margin: 0px auto;
+            display: block;
+          }
+        }
+
+        a.upload-button {
+          display: none;
+          height: 55px;
+          width: 55px;
+          background-color: $color--background--blue;
+          position: absolute;
+          top: 30px;
+          left: 33px;
+          border-radius: 30px;
+
+          &:before {
+            content: "\2b";
+            font-size: 28px;
+            color: white;
+            left: 18px;
+            top: 10px;
+            position: absolute;
+          }
+        }
+
+        &:hover {
+          .profile-image {
+            opacity: 0.5;
+          }
+
+          a.upload-button {
+            display: block;
+          }
+        }
+      }
+
+      .col-md-8.col-md-offset-2.info-content {
+        .full-name {
+          margin-top: 0px;
+          text-align: center;
+        } 
+        .address { 
+          text-align: center;
+          margin-bottom: 35px;
+        } 
+        .description {
+          text-align: center;
+          margin-bottom: 70px;
+          width: 100%;
+        }
+      }
+    }
+  }
+  .title-container  {
+    h3.title.main-title {
+      text-align: center;
+      margin: 0px;
+
+      &.empty {
+        padding-top: 0px;
+      }
+
+      &:before {
+        width: 0px;
+        height: 0px;
+        margin-right: 0px;
+      }
+    }
+
+    hr.color-mark {
+      margin: -1px auto 0px;
+
+    }
+  }
+
+  .form-container {
+    form {
+
+      .error {
+        color: red;
+        
+      }
+
+      button.update {
+        width: 100%;
+        height: 60px;
+        background-color: #42CF7E;
+        text-transform: uppercase;
+        border: none;
+        border-radius: 3px;
+        font-size: 16px;
+        color: white;
+
+        &:before {
+            content: "\e804";
+            color: white;
+            font-family: 'butaca';
+            font-size: 21px;
+            top: 3px;
+            padding-right: 7px;
+            vertical-align: sub;
+          }
+      }  
+
+      div.cancel-acc {
+        text-align: center;
+
+        span {
+          color: #50565A;
+          text-transform: capitalize;
+        }
+        
+        a {
+          text-decoration: underline;
+          color:  #aab0b6;
+        }
+
+      }
+
+      label {
+        margin-bottom: 15px;
+        color: #50565A;
+      }
+      @mixin default-input {
+        width: 100%;
+        padding: 5px;
+        background-color: #efefef;
+        border-color: #efefef;
+        color: #aab0b6;   
+
+        &:focus {
+          background: white;
+        }
+      }  
+
+      input[type='text'],
+      input[type='password'] {
+        @include default-input;
+
+        height: 50px;
+      }
+
+      label.password.optional {
+        text-transform: uppercase;
+      }
+
+      textarea {
+        @include default-input;
+
+        min-height: 160px;
+        resize: vertical;
+      }
+
+      select {
+        @include default-input;
+        height: 45px;
+      }
+
+      .description {
+        margin-top: 5px;
+      }
+
+    }
+  }
+}
+
+.custom-radio {
+  text-align: center;
+
+  a.custom-chek-option {
+    padding: 11px;
+    font-size: 15px;
+    line-height: 15px;
+    margin: 0px 5px;
+    color: #50565A;
+    text-decoration: none;
+    text-align: center;
+    display: inline-block;
+    text-transform: capitalize;
+
+    &:hover {
+      text-decoration: none;
+    }
+
+    &.selected {
+      background:  $color--background--blue;
+      color: white;
+      
+      border-radius: 20px;
+      
+      
+    }
+  }
+}

@@ -1,0 +1,22 @@
+$('#modalTitle .modal-main-content').html("<%= escape_javascript(render 'titles/title_info') %>");
+
+if( $('.navbar-default').hasClass('small') ){
+  $('#modalTitle').css({
+    'top': 145,
+    'position': 'absolute'
+  })
+}else{
+  $('#modalTitle').css({
+    'top': 145,
+  })
+}
+<% if device_type == :mobile %>
+  $('#modalTitle').css({
+    'top': 0
+  });
+  $('.modal-main-content .row.follow-btn-container').css({
+    'padding-bottom': '80px'
+  });
+<% end %>
+
+$('li.navbar-collapse-button').html("<%= escape_javascript(render 'shared/back_button_nav') %>")

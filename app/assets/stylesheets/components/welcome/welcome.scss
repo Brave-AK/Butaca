@@ -1,0 +1,139 @@
+@import 'merge';
+
+.welcome {
+    @include fs(14);
+
+    margin-top: 100px;
+
+    @include respond_to('small') {
+        margin-top: 150px;
+        }
+
+    @include respond_to('medium') {
+        max-width: 610px;
+
+        margin-top: 310px;
+        }
+    }
+
+.welcome__title {
+    @include fs(64);
+
+    margin-bottom: 50px;
+
+    text-transform: uppercase;
+    font-family: $font-ordinary;
+    color: $color--white;
+    letter-spacing: 7px;
+
+    span {
+        color: $color--text--blue;
+        }
+    }
+
+.welcome__description {
+    @include fs(20);
+
+    margin-bottom: 50px;
+
+    color: $color--text--gray;
+    line-height: 1.7;
+    }
+
+.welcome__social {
+    margin-bottom: 35px;
+
+    font-size: 0;
+    }
+
+.welcome__social__button {
+    width: 100%;
+    margin-bottom: 10px;
+    display: inline-block;
+
+    box-sizing: border-box;
+
+    text-align: center;
+    font-weight: bold;
+    text-decoration: none;
+
+    @include respond_to('small') {
+        width: 50%;
+
+        &:first-of-type {
+            padding-right: 15px;
+            }
+        }
+    }
+
+.welcome__social__button__inner {
+    @include fs(14);
+
+    padding: 15px;
+
+    border-radius: 3px;
+
+    color: $color--white;
+
+    .welcome__social__button--facebook & {
+        background-color: $color--background--blue;
+
+        &:hover {
+            background-color: $color--hover--blue;
+            }
+        }
+
+    .welcome__social__button--account & {
+        background-color: $color--background--gray;
+
+        &:hover {
+            background-color: $color--hover--gray;
+            }
+        }
+
+    @include respond_to('small') {
+        padding: 25px;
+        }
+    }
+
+.welcome__social__button__icon {
+    margin-right: 10px;
+    display: inline-block;
+
+    vertical-align: middle;
+
+    .welcome__social__button--facebook & {
+        width: 10px;
+        height: 20px;
+
+        background-image: asset_url('components/shared/icon--fb.svg');
+        background-repeat: no-repeat;
+        background-size: contain;
+        }
+
+    .welcome__social__button--account & {
+        width: 18px;
+        height: 18px;
+
+        background-image: asset_url('components/shared/icon--user.svg');
+        background-repeat: no-repeat;
+        background-size: contain;
+        }
+
+    @include respond_to('small') {
+        margin-right: 20px;
+        }
+    }
+
+.welcome__social__button__text {
+    display: inline-block;
+
+    vertical-align: middle;
+    text-transform: uppercase;
+    }
+
+.welcome__continue {
+    @include fs(14);
+
+    color: $color--text--gray--light;
+    }

@@ -1,0 +1,13 @@
+.row
+  .menu-sidebar
+    =render 'layouts/partials/sidebar'
+  .main-content
+    - if @country.is_active? && @country.titles.any?
+      %p
+        %span.results
+          .row
+            .col-md-12
+              =render @titles
+              #results
+
+=pageless(@titles.total_pages, country_path(@country), '#results')

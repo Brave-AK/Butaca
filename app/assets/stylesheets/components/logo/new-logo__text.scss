@@ -1,0 +1,10 @@
+@import 'merge';
+
+.new-logo__text {
+	@include fs(22);
+	
+	display: inline-block;
+	
+	color: $color--white;
+	vertical-align: middle;
+	}

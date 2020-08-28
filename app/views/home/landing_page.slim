@@ -1,0 +1,147 @@
+doctype html
+
+html lang="ru"
+ head
+   meta charset="utf-8"
+
+   meta name="viewport" content="width=device-width, initial-scale=1"
+
+   title butaca
+
+   // TODO: need right loading
+   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600italic,600,400italic,700,700italic' rel='stylesheet' type='text/css'>
+
+   = stylesheet_link_tag "new_application"
+
+   = javascript_include_tag "new_application"
+
+   script src="https://use.typekit.net/jyt7bua.js"
+   javascript:
+    try{Typekit.load({ async: true });}catch(e){}
+
+body
+  .link-to_current-site
+    = link_to "click here to enter", home_index_path, style: 'font-size: 15px;'
+  .landing
+    .landing__header
+      .landing__container
+        .landing__header__content
+          .landing__header__content__logo
+            = render "components/logo"
+
+          .landing__header__content__navigation
+            = render "components/navigation"
+
+          .landing__header__content__menu-burger
+            = link_to "", class: "menu-burger js-menu-burger-toggle"
+              .menu-burger
+                .menu-burger__line
+
+    .landing__menu--mobile.menu-mobile
+      = render "components/navigation"
+
+    .landing__section.landing__section-top
+      .landing__container
+        = link_to Title.friendly.find("no-se-aceptan-devoluciones"), class: "promo"
+          = image_tag "splash_screen_film1.png", class: "promo__image"
+
+        .welcome
+          .welcome__title
+            = I18n.t("landing.welcome.title.discover")
+            '
+            span = I18n.t("landing.welcome.title.enjoy")
+            '
+            = I18n.t("landing.welcome.title.free")
+
+          .welcome__description
+            = I18n.t("landing.welcome.description")
+
+          .welcome__social
+            / = link_to "", class: "welcome__social__button welcome__social__button--facebook"
+            /   .welcome__social__button__inner
+            /     .welcome__social__button__icon
+
+            /     .welcome__social__button__text
+            /       = I18n.t("landing.welcome.login.facebook")
+
+            
+            / chage the class to welcome__social__button--account 
+            = link_to new_user_registration_path, class: "welcome__social__button welcome__social__button--facebook"
+              .welcome__social__button__inner
+                .welcome__social__button__icon
+
+                .welcome__social__button__text
+                  = I18n.t("landing.welcome.login.account")
+
+          = link_to I18n.t("landing.welcome.login.continue"), home_index_path, class: "welcome__continue"
+
+        = link_to "", "", class: "landing__arrow-to-botom js-move-down", data: { target: "#js-scroll-target" }
+
+    .landing__section.landing__section-middle#js-scroll-target
+      .landing__container
+        .benefits
+          .benefits__item
+            .benefits__item__icon.benefits__item__icon--heart
+
+            .benefits__item__title
+              = I18n.t("landing.benefits.item1.title")
+
+            .benefits__item__text
+              = I18n.t("landing.benefits.item1.description")
+
+          .benefits__item
+            .benefits__item__icon.benefits__item__icon--hand
+
+            .benefits__item__title
+              = I18n.t("landing.benefits.item2.title")
+
+            .benefits__item__text
+              = I18n.t("landing.benefits.item2.description")
+
+          .benefits__item
+            .benefits__item__icon.benefits__item__icon--dollar
+
+            .benefits__item__title
+              = I18n.t("landing.benefits.item3.title")
+
+            .benefits__item__text
+              = I18n.t("landing.benefits.item3.description")
+
+          .benefits__item
+            .benefits__item__icon.benefits__item__icon--dollar
+
+            .benefits__item__title
+              = I18n.t("landing.benefits.item4.title")
+
+            .benefits__item__text
+              = I18n.t("landing.benefits.item4.description")
+
+    .landing__section.landing__section-bottom
+      .landing__container
+        .start
+          .start__text
+            = I18n.t("landing.start.service")
+            '
+            span = I18n.t("landing.start.span")
+            '
+            = I18n.t("landing.start.text1")
+            '
+            = link_to "Amazon", "http://www.amazon.com"
+            ' ,
+            = link_to "Hulu", "http://www.hulu.com/welcome"
+            ' ,
+            = link_to "Google", "https://www.google.com"
+            '
+            ' y
+            = link_to "Apple", "http://www.apple.com"
+            ' .
+            = I18n.t("landing.start.text2")
+
+          = link_to I18n.t("landing.start.get_start"), new_user_registration_path, class: "start__button"
+
+    .landing__footer
+      .landing__container
+        .landing__footer__content
+          .landing__footer__content__copyright © BUTACA.TV 2015
+
+    .layout__shadow

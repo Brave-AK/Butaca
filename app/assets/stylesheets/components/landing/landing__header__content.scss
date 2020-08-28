@@ -1,0 +1,12 @@
+@import 'settings';
+
+.landing {
+	height: 100%;
+	position: relative;
+
+	overflow: auto;
+	}
+
+.landing__header__content {
+	line-height: $height--header;
+	}

@@ -1,0 +1,17 @@
+@import 'merge';
+
+.landing__arrow-to-botom {
+    @include respond_to('small') {
+        width: 30px;
+        height: 30px;
+        margin-right: 20px;
+        bottom: 200px;
+        left: 50%;
+        position: absolute;
+        display: block;
+
+        border-right: 5px solid $color--white;
+        border-top: 5px solid $color--white;
+        transform: rotate(135deg);
+        }
+    }

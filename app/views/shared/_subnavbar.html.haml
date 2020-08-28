@@ -1,0 +1,16 @@
+%nav.navbar.navbar-subnav
+  .container-fluid
+    %ul
+      %li.navbar-collapse-button
+        %span.fa.fa-bars.hidden-xs
+      %li.hidden-xs
+        %ol.breadcrumb
+          = render_breadcrumbs tag: :li, separator: ""
+      %li.pull-right.li-filters
+        %ul
+          %li
+            =link_to t('collection'), collections_path, class: "#{controller?('collections') ? 'active' : ''}"
+          %li
+            =link_to t('country'), countries_path, class: "#{controller?('countries') ? 'active' : ''}"
+          %li
+            =link_to t('genre'), genre_index_path, class: "#{controller?('genre') ? 'active' : ''}"

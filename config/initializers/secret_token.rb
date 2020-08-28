@@ -1,0 +1,1 @@
+Butaca::Application.config.secret_token = 'd445b588f7605f0b926d04b49e7b78adf947beb5547ff2101a78fccad4da496df6953f9f1f55c605e9401949893794d9385ac38e659ab9f8b7db5d2bd7b98bd2'

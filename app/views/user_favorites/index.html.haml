@@ -1,0 +1,26 @@
+.tm-block.tm-block-main
+  .uk-container.uk-container-center
+    .tm-middle.uk-grid{"data-uk-grid-margin" => "", "data-uk-grid-match" => ""}
+      .tm-main.uk-width-medium-1-1
+        %main.tm-content
+          %article.uk-article
+            %h4=t('favorites')
+            %div
+              %p
+              .fabrikDataContainer.filmstrip.homefilmstrip
+                #list_34_com_content_34
+                  .fabrik_groupdata
+                    .uk-grid
+                      - @user_favorites.each do |favorite|
+                        .block{id: "title-#{favorite.title.id}"}
+                          =render 'titles/title', title: favorite.title
+                    %br/
+                  .filmstrip_footer
+                    .fabrik___heading
+                      %span
+                        .fabrikNav
+              %p
+              %br/
+              %br/
+              %br/
+              %br/

@@ -1,0 +1,22 @@
+@import 'helpers/merge';
+
+html {
+    height: auto;
+	min-height: 100%;
+
+	font-size: 52.5%;
+
+    @include respond_to('small') {
+        font-size: 62.5%;
+
+        }
+	}
+
+body {
+	min-width: 320px;
+    height: auto;
+	min-height: 100%;
+
+	-webkit-font-smoothing: antialiased;
+    font-family: $font-main, $font-default;
+	}

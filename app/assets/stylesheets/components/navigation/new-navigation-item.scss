@@ -1,0 +1,25 @@
+@import 'merge';
+
+.new-navigation-item {
+	margin-right: 50px;
+
+	vertical-align: middle;
+	text-decoration: none;
+	color: $color--text--gray;
+
+	&:last-of-type {
+		margin-right: 0;
+		}
+
+	&:hover {
+		color: $color--white;
+		}
+
+    .menu-mobile & {
+        padding: 20px;
+        margin-right: 0;
+        display: block;
+
+        text-align: center;
+        }
+	}

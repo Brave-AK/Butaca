@@ -1,0 +1,13 @@
+.row
+  .menu-sidebar
+    =render 'layouts/partials/sidebar'
+  .main-content
+    %p
+      %span.uk-h2
+        = @genre.genre_espanol
+    .row
+      .col-md-12
+        =render @titles
+        #results
+
+=pageless(@titles.total_pages, genre_path(@genre), '#results')

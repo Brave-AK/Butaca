@@ -1,0 +1,2 @@
+// $(".follow-button-<%=escape_javascript(params[:id])%>").toggleClass("followed");
+$("#collection-<%=@collection.id%>-follow-wrapper").replaceWith("<%= escape_javascript(@template.html_safe) %>");

@@ -1,0 +1,18 @@
+@import 'merge';
+@import 'settings';
+
+.landing__section-top {
+	padding-top: $height--header;
+	padding-bottom: 120px;
+	position: relative;
+
+	background-image: asset_url('components/landing/background-top.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	background-color: $color--background--blue;
+
+    @include respond_to('small') {
+		padding-bottom: 380px;
+    	}
+    }

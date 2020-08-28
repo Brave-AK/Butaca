@@ -1,0 +1,2 @@
+$(".follow-btn").toggleClass("followed");
+$('.follow-btn').text("<%= current_user.follow_title?(@title) ? t('stop_send_me_notifications') : t('send_me_notifications') %>");

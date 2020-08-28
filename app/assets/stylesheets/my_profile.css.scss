@@ -1,0 +1,134 @@
+@import "helpers/variables";
+
+.main-content.my-profile {
+	.container-fluid {
+		margin-left: -20px;
+	    margin-top: -15px;
+	    margin-right: -20px;
+
+	    .link {
+	    	height: 40px;
+	    	width: 40px;
+	    	position: absolute;
+		    display: inline-block;
+		    top: 20px; 
+	    }
+
+	    .setting-link {
+	    	background-image: image-url('settings.png');	
+	    	right: 75px;
+	    }
+
+	    .logout-link {
+			background-image: image-url('logout.png');
+			right: 25px;
+	    }
+
+		.row.top-block-info  {
+			background: image-url('profile_background.png');
+			background-size: cover;
+
+			& > div {
+				height: 260px;
+				font-family: $font-main;
+				color: white;
+
+				.profile-image {
+					margin-left: 45px;
+					margin-right: 40px;
+					float: left; 
+					height: 100%;
+
+					img {
+						border-radius: 55px;
+						height: 113px; 
+						width: 113px;
+						vertical-align: middle;
+						margin-top: 40%;
+					}
+				}
+
+				.info-content {
+					float: left;
+
+					.full-name {
+						margin-top: 50px;
+						font-size: 24px;
+						font-weight: 500;
+					}
+
+					.address {
+						font-size: 16px;
+						margin-top: 15px;
+					}
+					.description {
+						margin-top: 20px;
+						width: 490px;
+					}
+				}	
+			}
+		}
+	}
+	.title-container {
+		margin-bottom: 30px;
+
+		h3.title.main-title {
+			border-bottom: 1px solid RGB(232,232,232);
+			padding-top: 25px;
+	    	padding-bottom: 28px;
+	    	font-size: 14px;
+	    	text-transform: uppercase;
+	    	margin: 0px 10px;
+
+	    	&.favorites {
+	    		&:before {
+	    			background-image: image-url("my_fav.png");
+				    	
+	    		}
+	    	}
+
+	    	&.queue {
+	    		&:before {
+	    			background-image: image-url("add_to_queue.png");
+				    width: 21px;
+				    height: 16px;	
+	    		}
+	    	}
+
+	    	&.removed {
+	    		&:before {
+	    			background-image: image-url("removed_from_queue.png");
+				    width: 19px;
+				    height: 16px;	
+	    		}	
+	    	}
+
+	    	&:before{
+	    		  content: '';
+				    width: 18px;
+				    height: 17px;
+				    background-repeat: no-repeat;
+				    display: inline-block;
+				    vertical-align: middle;
+				    margin-right: 5px;
+			}	
+		}
+
+		hr.color-mark {
+		    width: 45px;
+			margin: -1px 10px 0px 10px;
+		    background-color: RGB(80,146,228);
+		    height: 1px;
+		    border: none;
+		    padding: 0px;
+		}
+	}
+
+	.empty-block {
+		color: $color--text--gray--light;
+		font-size: 14px;
+		float: left;
+		display: block;
+		margin-bottom: 30px;
+	}
+}

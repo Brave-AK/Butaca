@@ -1,0 +1,74 @@
+<div class="aside-inner">
+   <nav class="sidebarr scrollbar-custom" data-sidebar-anyclick-close="">
+      <!-- START sidebar nav-->
+      <ul class="nav">
+         <% if signed_in?(:user) %>
+            <li class="<%= 'active' if (controller?('users') && action?('my_profile'))%> menu-item-title">
+              <span class='list-header'>
+                <%= link_to t('my_butaca'), my_profile_path, class: 'sidebar-subnav-header' %>
+                <a href='#profile-parts' class="collapse-a fa <%= action?('my_profile') ? 'fa-angle-down': 'fa-angle-right' %> pull-right"></a>
+              </span>
+              <ul id='profile-parts' class="nav sidebar-subnav collapse <%='in' if action?('my_profile') %>">
+                <% ['favorites', 'queue', 'removals'].each do |part| %>
+                  <li class="#{'selected' if action?('my_profile') && params[:part] == part}">
+                    <%= link_to t(part), my_profile_path(part: part) %>
+                  </li>
+                <% end %>
+                
+              </ul>
+            </li>
+            
+           
+         <% end %>
+         <!-- Iterates over all sidebar items-->
+         <li class="<%= 'active' if controller?('collections') %> menu-item-title">
+            <span class='list-header'>
+                <%= link_to t('collections'), collections_path, class: 'sidebar-subnav-header' %>
+                <a href='#elements' class="collapse-a fa <%= controller?('collections')? 'fa-angle-down': 'fa-angle-right' %> pull-right"></a>
+            </span>
+            <ul id="elements" class="nav sidebar-subnav collapse <%='in' if controller?('collections')%>">
+               <li class="sidebar-subnav-header">Collections</span></li>
+               <%@collection_list.each do |col|%>
+                 <li>
+                   <div class="label"><%=col.titles_count%></div>
+                   <%=link_to col.collection_name, collection_path(col)%>
+                 </li>
+               <%end%>
+            </ul>
+         </li>
+         <li class="<%= 'active' if controller?('countries')%> menu-item-title">
+            <span class='list-header'>
+              <%= link_to t('country'), countries_path, class: 'sidebar-subnav-header' %>
+              <a href='#forms' class="collapse-a fa <%= controller?('countries') ? 'fa-angle-down': 'fa-angle-right' %> pull-right"></a>
+            </span>
+            <ul id="forms" class="nav sidebar-subnav collapse <%='in' if controller?('countries') || controller?('titles') %>">
+               <li class="sidebar-subnav-header">Pais</li>
+               <% @country_list.each do |pais|%>
+                 <li>
+                   <div class="label"><%=pais.titles_count%></div>
+                   <%=link_to pais.country, country_path(pais)%>
+                 </li>
+               <%end%>
+            </ul>
+         </li>
+         <li class="<%= 'active' if controller?('genre') || controller?('home') %> menu-item-title">
+            <span class='list-header'>
+              <%= link_to t('genre'), genre_index_path, class: 'sidebar-subnav-header' %>
+                <a href='#charts' class="collapse-a fa <%= controller?('genre') ? 'fa-angle-down': 'fa-angle-right' %> pull-right"></a>
+            </span>
+            <ul id="charts" class="nav sidebar-subnav collapse <%='in' if controller?('genre')%>">
+               <li class="sidebar-subnav-header">Charts</li>
+               <%@genre_list.each do |genre|%>
+               <li>
+                 <div class="pull-right label"><%=genre.titles_count%></div>
+                 <%=link_to genre.genre_espanol, genre_path(genre)%>
+               </li>
+               <%end%>
+            </ul>
+         </li>
+      </ul>
+      <!-- END sidebar nav-->
+   </nav>
+   </br>
+</div>
+<!-- END Sidebar (left)-->

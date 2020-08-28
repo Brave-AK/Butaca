@@ -1,0 +1,7 @@
+Hi there. This is your daily notifications
+-if @notifications.any? then
+  -@notifications.each do |n|
+    %p=n.message
+-else
+  %p
+    You have no any fresh notifications

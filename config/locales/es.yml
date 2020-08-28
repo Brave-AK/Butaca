@@ -1,0 +1,270 @@
+es:
+  time:
+   formats:
+     long: "%Y-%m-%d %H:%M:%S"
+  collections:
+    index:
+      title: "Coleccions"
+    by: por
+  is_now_available: ya está disponible en
+  home: Inicio
+  added_to_collection: ha sido agregada a la colección
+  favorites: Mis favoritos
+  queue: Mi lista por ver
+  removals: Películas Eliminadas
+  add_to_favorite: Favoritas
+  remove_from_view: Eliminar
+  add_to_queue: + Mi lista por ver
+  genre: Género
+  genres: Géneros
+  collection: Colecciones
+  country: País
+  countries: Países
+  tagline: PORQUE NOS GUSTAN LAS PELÍCULAS EN ESPAÑOL, TE AYUDAMOS A DESCUBRIRLAS. ¡MIRA Y DISFRUTA!
+  platforms: Dónde la puedes ver online
+  platfrom_not_avalible: Esta película no está disponible. Avísame cuando esté online.
+  notify_me: Avísame
+  send_me_notifications: Avísame cuando esté disponible en otra plataforma.
+  stop_send_me_notifications: Deja de enviarme notificaciones
+  notifications: Notificaciones
+  follow: Sígueme
+  unfollow: No Seguir
+  followed: Siguiendo
+  search: Busca por Película, Director o Género
+  sign_in: Entra
+  sign_up: Únete
+  collections: Colecciones
+  other_collections: Otras colecciones que te podrían gustar
+  search_result: Resultados de la Búsqueda
+  no_results: Ups, parece que no tenemos esta película, ¿quieres sugerirla?
+  add_title_question: ¿Te gustaría que la agregáramos?
+  yes_asnwer: ¡Si!
+  add_film_title: Solicitud para agregar film
+  film_name: Nombre del film
+  year_aprox: Año Aproximado
+  film_comment: Comentarios
+  send: Enviar
+  my_profile: Mi Perfil
+  logout: Salir
+  followed_collections: Mis Colecciones
+  close: Cerrar
+  director: Director
+  starring: Elenco
+  view: Ver
+  my_butaca: Mi Butaca
+  no_removed_films: Usted no se ha quitado films
+  no_favorites: ¡No has guardado tus películas favoritas! Fácilmente puedes volver a ellas seleccionado el ícono
+  no_films_in_queue: No tiene colas
+  about_me: Acerca de mí
+  password: contraseña
+  daily: diariamente
+  weekly: cada semana
+  none: ninguno
+  update: actualizar
+  unhappy: infeliz
+  cancel_account: Cancelar mi cuenta
+  first_name: Nombre de pila
+  last_name: Apellido
+  country: País
+  description: Descripción (opcional)
+  password_confirmation: Confirmación de contraseña
+  enter_first_name: Ingresa tu primer nombre
+  enter_last_name: Ingrese su apellido
+  describe_yourself: Describete a ti mismo
+  enter_new_password: Introduzca nueva contraseña
+  repeat_new_password: Repita la nueva contraseña
+  results_for: Resultados para
+  my_collections: Mis Colecciones
+  do_you_want_to_remove_film: Quieres quitar la película?
+  send_request_to_add_movie: Enviar solicitud para agregar película
+  user_suggests_a_film: No es la película que estabas buscando? Sugerir una película
+  here: aquí
+  back: atrás
+  clear_notifications: 'Limpiar notificaciones'
+  show_all: 'mostrar todos'
+  movies_stream_types:
+    free: gratis
+    digital_purchase: compra digital
+    rental: Arriendo
+    subscription: suscripción
+  rate: La tasa
+  active_admin:
+    dashboard: Dashboard
+    dashboard_welcome:
+      welcome: "Welcome to Active Admin. This is the default dashboard page."
+      call_to_action: "To add dashboard sections, checkout 'app/admin/dashboard.rb'"
+    view: "View"
+    edit: "Edit"
+    delete: "Delete"
+    delete_confirmation: "Are you sure you want to delete this?"
+    new_model: "New %{model}"
+    edit_model: "Edit %{model}"
+    delete_model: "Delete %{model}"
+    details: "%{model} Details"
+    cancel: "Cancel"
+    empty: "Empty"
+    previous: "Previous"
+    next: "Next"
+    download: "Download:"
+    has_many_new: "Add New %{model}"
+    has_many_delete: "Delete"
+    has_many_remove: "Remove"
+    filters:
+      buttons:
+        filter: "Filter"
+        clear: "Clear Filters"
+      predicates:
+        contains: "Contains"
+        equals: "Equals"
+        starts_with: "Starts with"
+        ends_with: "Ends with"
+        greater_than: "Greater than"
+        less_than: "Less than"
+    search_status:
+      headline: "Scope:"
+      current_filters: "Current filters:"
+      no_current_filters: "None"
+    status_tag:
+      "yes": "Yes"
+      "no": "No"
+    main_content: "Please implement %{model}#main_content to display content."
+    logout: "Logout"
+    powered_by: "Powered by %{active_admin} %{version}"
+    sidebars:
+      filters: "Filters"
+      search_status: "Search Status"
+    pagination:
+      empty: "No %{model} found"
+      one: "Displaying <b>1</b> %{model}"
+      one_page: "Displaying <b>all %{n}</b> %{model}"
+      multiple: "Displaying %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> of <b>%{total}</b> in total"
+      multiple_without_total: "Displaying %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b>"
+      entry:
+        one: "entry"
+        other: "entries"
+    any: "Any"
+    blank_slate:
+      content: "There are no %{resource_name} yet."
+      link: "Create one"
+    dropdown_actions:
+      button_label: "Actions"
+    batch_actions:
+      button_label: "Batch Actions"
+      default_confirmation: "Are you sure you want to do this?"
+      delete_confirmation: "Are you sure you want to delete these %{plural_model}?"
+      succesfully_destroyed:
+        one: "Successfully destroyed 1 %{model}"
+        other: "Successfully destroyed %{count} %{plural_model}"
+      selection_toggle_explanation: "(Toggle Selection)"
+      link: "Create one"
+      action_label: "%{title} Selected"
+      labels:
+        destroy: "Delete"
+    comments:
+      created_at: "Created"
+      resource_type: "Resource Type"
+      author_type: "Author Type"
+      body: "Body"
+      author: "Author"
+      title: "Comment"
+      add: "Add Comment"
+      delete: "Delete Comment"
+      delete_confirmation: "Are you sure you want to delete these comment?"
+      resource: "Resource"
+      no_comments_yet: "No comments yet."
+      author_missing: "Anonymous"
+      title_content: "Comments (%{count})"
+      errors:
+        empty_text: "Comment wasn't saved, text was empty."
+    devise:
+      username:
+        title: "Username"
+      email:
+        title: "Email"
+      subdomain:
+        title: "Subdomain"
+      password:
+        title: "Contraseña"
+      sign_up:
+        title: "Sign up"
+        submit: "Sign up"
+      login:
+        title: "Entre"
+        remember_me: "Recordarme"
+        submit: "Entrar"
+      reset_password:
+        title: "¿Olvidaste tu contraseña?"
+        submit: "Reset My Password"
+      change_password:
+        title: "Change your password"
+        submit: "Change my password"
+      unlock:
+        title: "Resend unlock instructions"
+        submit: "Resend unlock instructions"
+      resend_confirmation_instructions:
+        title: "Resend confirmation instructions"
+        submit: "Resend confirmation instructions"
+      links:
+        sign_up: "Sign up"
+        sign_in: "Entrar"
+        forgot_your_password: "¿Olvidaste tu contraseña?"
+        sign_in_with_omniauth_provider: "Sign in with %{provider}"
+        resend_unlock_instructions: "Resend unlock instructions"
+        resend_confirmation_instructions: "Resend confirmation instructions"
+    unsupported_browser:
+      headline: "Please note that ActiveAdmin no longer supports Internet Explorer versions 8 or less."
+      recommendation: "We recommend upgrading to the latest <a href=\"http://windows.microsoft.com/ie\">Internet Explorer</a>, <a href=\"https://chrome.google.com/\">Google Chrome</a>, or <a href=\"https://mozilla.org/firefox/\">Firefox</a>."
+      turn_off_compatibility_view: "If you are using IE 9 or later, make sure you <a href=\"http://windows.microsoft.com/en-US/windows7/webpages-look-incorrect-in-Internet-Explorer\">turn off \"Compatibility View\"</a>."
+    access_denied:
+      message: "You are not authorized to perform this action."
+    index_list:
+      table: "Table"
+      block: "List"
+      grid: "Grid"
+      blog: "Blog"
+    formtastic:
+      create: "Create a %{model}"
+      update: "Update %{model}"
+
+  report_a_problem: Reportar un problema
+  thanks_message: Gracias por ayudarnos a actualizar esta película. Por favor, sé específico en el problema.
+  author: Autor
+  title: Titulo
+  message: Mensaje
+  send: Enviar
+
+  navigation:
+    country: "Por País"
+    collections: "Por Colecciones"
+    genre: "Por Género"
+  landing:
+    welcome:
+      title:
+        discover: "El cine que tú quieres."
+        enjoy: "Busca. Encuentra. Disfruta."
+        free: ""
+      description: "Butaca es tu portal al entretenimiento! Toma asiento y disfruta lo mejor del cine en español."
+      login:
+        account: "Registrarse con email"
+        facebook: "Entrar con Facebook"
+        continue: "O visitar el sitio sin una cuenta"
+    benefits:
+      item1:
+        title: "Simple."
+        description: "Sabemos que existen múltiples opciones para ver cine. Con Butaca, es tan fácil como
+navegar a la colección de tu antojo, escoger una película y tomar asiento. ¡Así de sencillo!"
+      item2:
+        title: "Selecto."
+        description: "Hemos seleccionado lo mejor del cine en español para ti. ¡Déjate sorprender y deléitate con tu siguiente película!"
+      item3:
+        title: "Libre."
+        description: "Disfruta del cine sin prejuicios. Tenemos películas para todo tipo de gustos, desde lo más sofisticado hasta lo más entretenido. ¡Asi que prepárate a gozar!"
+      item4:
+        title: "Gratis."
+        description: "Como el amor. Como el aire. Y como lo diría la abuela, lo mejor en la vida es gratis. ¡Butaca también lo es! *"
+    start:
+      service: "El servicio de Butaca"
+      span: "es absolutamente gratuito."
+      text1: "La empresa matriz Veranda Entertainment distribuye cine en español a los portales más importantes tales como"
+      text2: "y Apple. Creamos este sitio para promover el cine en español de calidad. Entre más éxito tenga la industria, más cine tendremos para disfrutar. Esa es nuestra visión y nuestro compromiso."
+      get_start: "get started"

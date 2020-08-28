@@ -1,0 +1,9 @@
+.row
+  .menu-sidebar
+    =render 'layouts/partials/sidebar'
+  .main-content
+    .row.padding-10
+      =render @collections
+      #results
+
+=pageless(@collections.total_pages, collections_path, '#results')

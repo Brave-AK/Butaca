@@ -1,0 +1,26 @@
+=link_to "#", class: "dropdown-toggle", 'data-toggle' => "dropdown", "aria-haspopup"=>"true", "aria-expanded"=>"false" do
+  .fa.fa-bell-o
+.number
+  .number-circle
+    %span=@last_notification.size
+%ul.dropdown-menu
+  %h6.notifications-title
+    =t("notifications")
+    %span.text-blue="("
+    =@last_notification.size
+    %span.text-blue=")"
+  =link_to t('clear_notifications'), mark_all_notifications_as_readed_path, class: 'btn', remote: true
+  -@last_notification.each do |l|
+    %li.notif
+      -if l.notification then
+        =link_to image_tag(l.notification.notifier.image.url(:thumb)), mark_notifications_as_readed_path(l), remote: true, class: 'image-container'
+      =link_to mark_notifications_as_readed_path(l), remote: true, class: 'content-container' do
+        %span.content 
+          =l.message
+        %span.time-ago 
+          =time_ago_in_words(l.created_at.to_date)
+
+:javascript
+  $(".notif").on('mouseenter', function(e){
+    console.log(e.target);
+  });

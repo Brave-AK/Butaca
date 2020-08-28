@@ -1,0 +1,46 @@
+.custom-web-error {
+  background: url('404_background.png');
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  .error-msg {
+    width: 348px;
+    height: 333px;
+    margin: 250px auto;
+    display: block;
+    background: url('404.png');
+    position: relative;
+
+    .error-help {
+      position: relative;
+      top: 180px;
+      width: 160px;
+      text-align: center;
+      margin: 0px auto;
+      font-family: open-sans, 'Maven Pro';
+
+      > div {
+        width: 100%;
+        display: block;
+      }
+    }
+
+    a.back-link {
+      position: relative;
+      top: 198px;
+      width: 160px;
+      text-align: center;
+      margin: 0px auto;
+      font-family: open-sans, 'Maven Pro';
+      text-transform: uppercase;
+      display: block;
+      color: black;
+      text-decoration: none;
+    }
+  }
+
+ 
+}

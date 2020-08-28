@@ -1,0 +1,53 @@
+@import 'merge';
+
+.start {
+    @include fs(14);
+
+    max-width: 650px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: 65px;
+    padding-bottom: 70px;
+
+    text-align: center;
+
+    @include respond_to('small') {
+        padding-top: 135px;
+        padding-bottom: 115px;
+        }
+    }
+
+.start__text {
+    margin-bottom: 50px;
+
+    color: $color--text--gray--light;
+    line-height: 1.5;
+
+    span {
+        border-bottom: 1px solid;
+
+        color: $color--text--gray--dark;
+        }
+
+    a {
+        color: $color--text--blue;
+        text-decoration: none;
+        }
+    }
+
+.start__button {
+    padding: 25px 80px;
+
+    border-radius: 3px;
+    background-color: $color--background--blue;
+
+    color: $color--white;
+    text-transform: uppercase;
+    text-decoration: none;
+    overflow: hidden;
+    font-weight: bold;
+
+    &:hover {
+        background-color: $color--hover--blue;
+        }
+    }

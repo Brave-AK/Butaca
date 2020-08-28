@@ -1,0 +1,15 @@
+.actions_bar__button {
+	width: 130px;
+	height: 50px;
+	margin: 0 auto 12px;
+
+	border-radius: 3px;
+
+	a {
+		display: block;
+	}
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}

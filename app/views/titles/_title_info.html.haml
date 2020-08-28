@@ -1,0 +1,151 @@
+-if @modal
+  .row
+    .col-md-8.col-md-offset-2.col-xs-11
+      .row.close-button
+        %button{:type => "button", :class => "close-modal", "data-dismiss" => "modal", "aria-label" => "Close"}
+          %span{"aria-hidden" => "true"}
+            =t('close')
+            %span
+              =image_tag('close.png')
+.row
+  .col-md-8.col-md-offset-2
+    .row
+      .col-md-3.col-xs-6
+        %img.fabrikLightBoxImage{:alt => "", :src => "#{@title.key_art.url(:medium)}"}/
+      .col-md-6.col-xs-6
+        .row.title-name#titles___filmTitle_ro
+          .col-md-12
+            = @title.film_title
+            %span.title-year
+              -if @title.year_produced.present?
+                (#{@title.year_produced})
+
+            / .col-md-12.title-name#titles___filmTitle_ro
+            / = @title.film_title
+            / %span.title-year
+            /   -if @title.year_produced.present?
+            /     (#{@title.year_produced})
+        .row.hidden-xs
+          .col-md-12
+            %span.detail-label
+              =t('country')
+            %span.detail-content
+              =@title.countries.pluck(:country).join(', ')
+        .row.title-genres-list
+          .col-md-12
+            =@title.genres.collect(&:genre_espanol).join(' · ')
+        .row.hidden-xs
+          .col-md-12
+            %span.detail-label
+              =t('director')
+            %span.detail-content#titles___Director_ro= @title.director
+        .row.hidden-xs
+          .col-md-12
+            %span.detail-label
+              =t('starring')
+            %span.detail-content
+              =@title.actors
+        .row.visible-xs
+          =render partial: 'shared/fav_buttons', locals: {show_view_button: false, title: @title}
+        .row
+          .col-md-12.title-description.hidden-xs
+            = @title.snappy_summary
+
+      .col-md-3.title-favorites-buttons.hidden-xs
+        .fix_buttons.film-buttons
+          -if !current_user then
+            =rating_for(@title, "users_score", :enable_half => true, :half_show => true, readonly: true)
+          -else
+            =rating_for(@title, "users_score", :enable_half => true, :half_show => true)
+          =render partial: 'shared/fav_buttons', locals: {show_view_button: false, title: @title}
+.row.visible-xs
+  .col-xs-4
+    %div.detail-label
+      =t('country')
+    %div.detail-content
+      =@title.countries.pluck(:country).join(', ')
+
+  .col-xs-4
+    %div.detail-label
+      =t('director')
+    %div.detail-content#titles___Director_ro= @title.director
+
+  .col-xs-4
+    %div.detail-label
+      =t('rate')
+    -if !current_user then
+      =rating_for(@title, "users_score", :enable_half => true, :half_show => true, readonly: true)
+    -else
+      =rating_for(@title, "users_score", :enable_half => true, :half_show => true)
+.row.visible-xs
+  .col-xs-12
+    %div.detail-label
+      =t('starring')
+    %div.detail-content
+      =@title.actors
+.row.visible-xs
+  .col-xs-11.title-description
+    = @title.snappy_summary
+
+.row
+  .col-md-8.col-md-offset-2.info-border
+
+.row
+  .col-md-8.col-md-offset-2.platforms-head
+    %strong=t('platforms')
+
+.row
+  .col-md-8.col-md-offset-2
+    .row.movie-streams
+      .col-md-3.col-xs-11
+        .movie-stream-title
+          =t('movies_stream_types.free')
+        -@movie_streams.free.each do |stream|
+          .platform_detail
+            -if stream.movie_stream_link_type
+              =link_to stream.link, target: "_blank", title: stream.movie_stream_link_type.typel, class: "uk-thumbnail" do
+                =image_tag(stream.movie_stream_link_type.logo.url(:medium))
+                %div.go-play
+                  .icon-play
+      .col-md-3.col-xs-11
+        .movie-stream-title
+          =t('movies_stream_types.digital_purchase')
+        -@movie_streams.digital_purchase.each do |stream|
+          .platform_detail
+            -if stream.movie_stream_link_type
+              =link_to stream.link, target: "_blank", title: stream.movie_stream_link_type.typel, class: "uk-thumbnail" do
+                =image_tag(stream.movie_stream_link_type.logo.url(:medium))
+                %div.go-play
+                  .icon-play
+      .col-md-3.col-xs-11
+        .movie-stream-title
+          =t('movies_stream_types.rental')
+        -@movie_streams.rental.each do |stream|
+          .platform_detail
+            -if stream.movie_stream_link_type
+              =link_to stream.link, target: "_blank", title: stream.movie_stream_link_type.typel, class: "uk-thumbnail" do
+                =image_tag(stream.movie_stream_link_type.logo.url(:medium))
+                %div.go-play
+                  .icon-play
+
+      .col-md-3.col-xs-11
+        .movie-stream-title
+          =t('movies_stream_types.subscription')
+        -@movie_streams.subscription.each do |stream|
+          .platform_detail
+            -if stream.movie_stream_link_type
+              =link_to stream.link, target: "_blank", title: stream.movie_stream_link_type.typel, class: "uk-thumbnail" do
+                =image_tag(stream.movie_stream_link_type.logo.url(:medium))
+                %div.go-play
+                  .icon-play
+
+.row.follow-btn-container
+  .col-md-4.col-md-offset-4
+    .row
+      - if current_user
+        -if @title.notifications.where(user: current_user).any?
+          =link_to t('stop_send_me_notifications'), follow_title_path(@title), class: "follow-btn btn followed", remote: true
+        -else
+          =link_to t('send_me_notifications'), follow_title_path(@title), class: "follow-btn btn", remote: true
+      - else
+        =link_to t('send_me_notifications'), new_user_registration_path(feature: true), class: "follow-btn btn"

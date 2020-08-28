@@ -1,0 +1,153 @@
+@import "helpers/variables";
+
+#sb-site {
+  nav.navbar.navbar-fixed-top {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  .main-content {
+    width: 100%;
+    padding-left: 15px;
+  }
+
+  .sb-toggle-left-custom {
+    color: #ffffff;
+    float: left;
+    margin-left: 35px;
+    width: 40px;
+    height: 100%;
+    cursor: pointer;
+
+    span.fa {
+      font-size: 33px;
+      height: 90px;
+      line-height: 82px;
+    }
+  }
+  .navbar-brand {
+    left: 0vw;
+    padding-left: 5px;
+  }
+}
+.sb-slidebar.sb-left {
+  z-index: 10000;
+  -webkit-overflow-scrolling: touch;
+
+  .user-info {
+    height: 70px;
+    .short-info {
+      height: 70px;
+      width: 100%;
+      padding: 15px;
+      
+      .login-person {
+        border-radius: 24px;
+        height: 48px;
+        width: 48px;
+      }
+
+      span.name {
+        color: white;
+      }
+      span.caret {
+        border-top-color: #ffffff;
+        border-bottom-color: #ffffff;
+      }
+
+      .btn.btn-power-off {
+        color: white;
+        font-size: 20px;
+        margin-top: 3px;
+        float: right;
+        border-radius: 4px;
+        background: #d25452;
+        padding: 5px 8px;
+        border: none;
+      }
+
+    }
+
+  }
+
+  .auth-actions {
+    width: 100%;
+    padding: 17px 17px 20px 17px;
+
+    a {
+      display: block;
+      width: 100%;
+      color: #ffffff;
+      border-radius: 35px;
+      height: 50px; 
+      text-align: center;
+      margin-top: 10px;
+      line-height: 50px;
+
+      &.sign-up {
+        background-color: $color--background--gray;
+      }
+
+      &.sign-in {
+        background-color: $color--background--blue;
+
+      }
+    }
+  }
+
+  .aside-inner {
+    background: #222222;
+    .sidebarr {
+      background: #222222;
+      height: auto;
+      padding-top: 5px;
+
+      .nav > li {
+        background: #222222;
+        height: auto;
+        border-top: 1px solid $color--background--gray--dark;
+
+        span.list-header {
+          text-transform: uppercase;
+          font-family: open-sans, 'Maven Pro';
+          
+          a.sidebar-subnav-header {
+            color: #ffffff;
+            height: 60px;
+            line-height: 60px;
+          }
+
+          .fa {
+            font-family: 'FontAwesome';
+            color: #ffffff;
+            height: 55px;
+            line-height: 55px;
+            text-decoration: none;
+
+            &:active, &:hover {
+              text-decoration: none;
+            }
+          }
+        }
+
+        > ul {
+          margin-bottom: 0px;
+
+          &#profile-parts {
+            a {
+              text-align: left;
+            }
+          }
+
+          li {
+            border: none;
+
+            a {
+              color: #F0F0F0;
+            }
+
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+.product-wrapper--fix {
+	width: 215px !important;
+	padding: 0 !important;
+	margin-right: 12px !important;	
+	margin-left: 12px !important;
+	float: none !important;
+	display: inline-block !important;	
+	vertical-align: top !important;
+}
+
+.product-thumbnail {
+	width: 210px !important;
+}
+
+.product-img {
+	height: 320px !important;
+}
+
+.product-overlay {
+	height: 320px !important;
+	padding: 0 !important;
+
+	line-height: 320px !important;
+	text-align: center;
+}
+
+.addToFav {
+	width: 130px;
+	display: inline-block !important;
+
+	line-height: normal;
+	vertical-align: middle;
+}

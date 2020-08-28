@@ -1,0 +1,14 @@
+@import 'merge';
+
+.landing__header__content__menu-burger {
+    width: 30px;
+    height: 24px;
+    margin-top: -15px;
+    top: 50%;
+    right: 30px;
+    position: absolute;
+
+    @include respond_to('small') {
+        display: none;
+        }
+    }

@@ -1,0 +1,30 @@
+@import 'merge';
+
+$height: 120px;
+$height--mobile: 70px;
+
+.landing__footer {
+    height: $height--mobile;
+
+    background-color: $color--background--gray--dark;
+
+    line-height: $height--mobile;
+
+    @include respond_to('small') {
+        height: $height;
+
+        line-height: $height;
+        }
+    }
+
+.landing__footer__content {
+    @include fs(14);
+
+    float: right;
+
+    font-weight: bold;
+    }
+
+.landing__footer__content__copyright {
+    color: $color--text--blue;
+    }

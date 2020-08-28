@@ -1,0 +1,37 @@
+.product-wrapper--fix.col-lg-2.col-md-3.col-sm-6.padding-5{id: "title-#{title.id}"}
+  .product-thumbnail
+    .product
+      %div.product-img{style: "background-image: url('#{title.key_art.url(:medium)}'); background-size: cover; background-repeat: no-repeat; background-position: center center;"}
+      %div.product-overlay
+        =render partial: 'shared/fav_buttons', locals: {show_view_button: true, title: title}
+    .title-info
+      .title-info-name= truncate(title.film_title, :length => 20)
+      .title-info-country= title.countries.collect(&:country).join(', ')
+      -title.movie_streams.first(5).each do |stream|
+        =image_tag(stream.movie_stream_link_type.small_logo.url(:tiny))
+    .info{"style" => "display: none;"}
+      %h5= truncate(title.film_title, :length => 20)
+      .icon
+        -if current_user
+          -if current_user.user_favorites.pluck(:title_id).include?(title.id) then
+            =link_to image_tag('heart-red.png', style: "width: 38px;"), add_to_favorite_path(title.id), remote: true
+          -else
+            =link_to image_tag('heart.png'), add_to_favorite_path(title.id), class: "round-icon add_favourite", remote: true
+        -else
+          =link_to image_tag('heart.png'), new_user_registration_path, class: "round-icon add_favourite"
+      .icon
+        -if current_user
+          -if current_user.user_removals.pluck(:title_id).include?(title.id) then
+            =link_to image_tag('cross-red.png', style: "width: 38px;"), add_to_removal_path(title.id), remote: true
+          -else
+            =link_to image_tag('cross.png'), add_to_removal_path(title.id), class: "round-icon Remove_view", remote: true
+        -else
+          =link_to image_tag('cross.png'), new_user_registration_path, class: "round-icon Remove_view"
+      .icon
+        -if current_user
+          -if current_user.user_queues.pluck(:title_id).include?(title.id) then
+            =link_to image_tag('edit-red.png', style: "width: 38px;"), add_to_que_path(title.id), remote: true
+          -else
+            =link_to image_tag('edit.png'), add_to_que_path(title.id), class: "round-icon myqueue", remote: true
+        -else
+          =link_to image_tag('edit.png'), new_user_registration_path, class: "round-icon myqueue"

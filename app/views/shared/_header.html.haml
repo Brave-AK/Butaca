@@ -1,0 +1,58 @@
+%nav.navbar.navbar-default.navbar-inverse.navbar-fixed-top
+  .container-fluid.width-margin
+    .navbar-header
+      - if device_type == :mobile
+        .sb-toggle-left-custom
+          %span.fa.fa-bars
+      %button.navbar-toggle.collapsed.hidden-xs{"aria-expanded" => "false", "data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %a.navbar-brand{:href => "/"}
+
+        %span
+          =image_tag('butacaChairOnly.png', :alt => "logo", :height => "45", :width => "45")
+        %span.name.hidden-xs Butaca
+    #bs-example-navbar-collapse-1.collapse.navbar-collapse
+      = search_form_for @q, url: search_path, class: 'navbar-form navbar-left' do |f|
+        .form-group
+          .fa.fa-search
+          = f.search_field :film_title_cont, class: "form-control", placeholder: t('search'), id: "search_field"
+        .border-bottom-search
+      - if current_user
+        %ul.nav.navbar-nav.navbar-right
+          %li.bell.dropdown.main
+            =render "shared/notifications_bar"
+          %li.user-information.dropdown.main
+            %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+              %span.avatar
+                =image_tag('person.png', class:"login-person")
+              %span.name
+                =current_user.username
+              %span.caret
+            %ul.dropdown-menu.menu-options
+              %li{style: "background-image: url('/assets/profile-banner.png');"}
+                = link_to t('my_profile'), my_profile_path
+                %span.btn.btn-power-off
+                  .fa.fa-power-off
+              %li
+                =link_to t('favorites'), my_profile_path(part: 'favorites')
+              %li
+                =link_to t('queue'), my_profile_path(part: 'queue')
+              %li
+                =link_to t('removals'), my_profile_path(part: 'removals')
+              %li
+                =link_to t('followed_collections'), followed_collections_path
+              %li
+                %a{:href => "/logout"}=t('logout')
+          / %li.social_buttons
+          /   =social_share_button_tag()
+      - else
+        %ul.nav.navbar-nav.navbar-right.logout
+          %li
+            =link_to login_path, class: "padding" do
+              %span.top-nav-button.register-button=t('sign_up')
+          %li
+            =link_to login_path, class: "padding" do
+              %span.top-nav-button.signin-button=t('sign_in')

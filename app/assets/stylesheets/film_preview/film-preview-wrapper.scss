@@ -1,0 +1,13 @@
+@import '_settings';
+
+.film-preview-wrapper {
+	width: $width;
+	margin-right: 20px;
+	margin-bottom: 40px;
+	display: inline-block;
+
+	font-size: 14px;
+	font-family: "open-sans", "Maven Pro";
+	text-align: center;
+	vertical-align: top;
+}

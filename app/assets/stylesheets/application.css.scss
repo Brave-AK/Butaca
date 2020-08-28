@@ -1,0 +1,33 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * --- Angle Main Stylesheet
+ *
+ *= require angle/app
+ *
+ * --- Assets paths redefinition
+ *
+ *= require fonts
+ *= require vendor.assets
+ *= require custom
+ *= require theme
+ *= require styles
+ *= require jquery-ui
+ *= require jquery-ui.structure
+ *= require search
+ *= require bootstrap
+ *= require layoutfix
+ *= require sign_in_up
+ *= require nav-bar
+ *= require title
+ *= require collection
+ *= require social-share-button
+ *= require_tree ./fix
+ *= require my_profile
+ *= require title
+ *= require slidebars.min
+ *= require mobile_sidebar
+ *= require statics
+ *
+ */

@@ -1,0 +1,68 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}/
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
+    %title Butaca
+    = stylesheet_link_tag 'base'
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'base', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+
+    = csrf_meta_tags
+
+    %script{src: "https://use.typekit.net/jyt7bua.js"}
+    %script
+      try{Typekit.load({ async: true });}catch(e){}
+    %script
+      (function() {var s = document.createElement("script");s.type = "text/javascript";s.async = true;s.src = '//api.usersnap.com/load/'+'f65ca01e-d949-4ffe-80ad-aefb18d19e37.js';var x = document.getElementsByTagName('script')[0];x.parentNode.insertBefore(s, x);})();
+  %body.main-scrollbar-custom
+    - if device_type != :mobile
+      = render "shared/header"
+      = render 'shared/subnavbar'
+      #alert-container
+        = render "shared/alert"
+      .container-fluid.margin.width-margin
+        = yield
+      -if current_page?(root_url)
+        = render "shared/footer"
+    - else
+      = render 'layouts/partials/mobile_sidebar'
+      #sb-site
+        = render "shared/header"
+        = render 'shared/subnavbar'
+        #alert-container
+          = render "shared/alert"
+        .container-fluid.margin.width-margin
+          = yield
+        -if current_page?(root_url)
+          = render "shared/footer"
+
+
+
+    / /.modal-content
+  / /.modal-dialog
+/ /.modal
+
+#modalTitle.modal.fade.main-scrollbar-custom.sb-slide{"aria-hidden" => "true", "aria-labelledby" => "modalTitle", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog
+    .modal-content
+      .modal-main-content
+
+#myModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog
+    .modal-content
+
+.modal.confirm-removal-modal.fade{:id=> "confirmation-modal-uniq"}
+  .modal-dialog
+    .modal-content
+      .modal-body
+        %h4
+          =t('do_you_want_to_remove_film')
+        .actions{:style=>'text-align: right; margin-top: 5px;'}
+          %button{:type=>'button', :class=>'cancel-button btn btn-default'}
+            Cancel
+          %button{:type=>'button', :class=>'confirm-button btn btn-primary'}
+            Yes       

@@ -1,0 +1,58 @@
+.action_bar__button__link {
+	padding: 10px;
+	border-radius: 5px;
+	color: #fff;
+	text-transform: uppercase;
+	overflow: hidden;
+
+	&:hover {
+		color: #fff;
+		text-decoration: none;
+	}
+
+	&--like {
+		background-color: rgba(#c75653, 0.9);
+
+		&:hover {
+			background-color: rgba(#c75653, 0.9);
+		}
+	}
+
+	&--queue {
+		background-color: rgba(#4e89d3, 0.9);
+
+		&:hover {
+			background-color: rgba(#4e89d3, 0.9);
+		}
+	}
+
+	&--remove {
+		background-color: rgba(#303236, 0.9);
+
+		&:hover {
+			background-color: rgba(#303236, 0.9);
+		}
+	}
+
+	&--view {
+		background-color: rgba(#edeced, 0.9);
+
+		&:hover {
+			background-color: rgba(#edeced, 0.9);
+		}
+	}
+
+	.icon {
+		margin-top: -2px;
+		margin-right: -5px;
+		font-size: 22px;
+	}
+
+	.icon-eye {
+		color: #5092e4;
+	}
+
+	span {
+		vertical-align: top;
+	}
+}

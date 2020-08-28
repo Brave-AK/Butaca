@@ -1,0 +1,12 @@
+.row
+  .menu-sidebar
+    =render 'layouts/partials/sidebar'
+  .main-content
+    - @countries.each do |country|
+      - if country.is_active? && country.titles.any?
+        = link_to country.country, country_path(country)
+        = link_to t("show_all"), country_path(country), style: "float: right;"
+        .row
+          .col-md-12
+            - country.titles.first(6).each do |title|
+              =render 'titles/title', title: title

@@ -1,0 +1,9 @@
+@import 'merge';
+
+.landing__menu--mobile {
+    display: none;
+
+    .menu-burger--shown & {
+        display: block;
+        }
+    }

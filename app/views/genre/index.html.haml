@@ -1,0 +1,13 @@
+.row
+  .menu-sidebar
+    =render 'layouts/partials/sidebar'
+  .main-content
+    - @genres.each do |genre|
+      %p
+        %span.uk-h2
+          = genre.genre_espanol
+          = link_to t("show_all"), genre_path(genre), style: "float: right;"
+      .row
+        .col-md-12
+          - genre.titles.order_by_position.first(6).each do |title|
+            =render 'titles/title', title: title

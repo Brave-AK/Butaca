@@ -1,0 +1,14 @@
+.addToFav{class: "#{ details_page? ? '' : 'shortView'}"}
+  = add_to_favorites_link(current_user, title, {detailed_view: details_page?})
+    
+  = add_to_queue_link(current_user, title, {detailed_view: details_page?} )
+
+  = remove_link(current_user, title, {detailed_view: details_page?} )
+
+  
+  -unless details_page?
+    -if title
+      = show_details_link(current_user, title)
+
+  -if current_user
+    %a.uk-button.btn.btn-action-title.btn-problem{"data-target" => "#myModal", "data-toggle" => "modal", :href => report_messages_path(title_id: title.id)}=t('report_a_problem')

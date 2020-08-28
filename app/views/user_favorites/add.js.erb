@@ -1,0 +1,11 @@
+
+<% @title = Title.find(params[:title_id]); @country_list = Country.where(is_active?: true); @movie_streams = @title.movie_streams.visible;%>
+$("#title-<%=escape_javascript(params[:title_id])%>").html("<%= escape_javascript(render partial: 'titles/title', locals: { title: Title.find(params[:title_id]) } ) %>");
+if ($("#title-details-<%=escape_javascript(params[:title_id])%>").length) {
+  <% @title_details_page = true %>
+}
+$("#title-details-<%=escape_javascript(params[:title_id])%>").html("<%= escape_javascript(render partial: 'titles/title_info') %>");
+if ($('#modalTitle .modal-main-content').is(':visible')) {
+  <% @modal = true; %>
+  $('#modalTitle .modal-main-content').html("<%= escape_javascript(render 'titles/title_info') %>");
+}

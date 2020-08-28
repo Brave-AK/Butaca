@@ -1,0 +1,2 @@
+module UserActivityLogsHelper
+end

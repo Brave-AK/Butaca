@@ -1,0 +1,13 @@
+@import 'merge';
+
+.landing__header__content__navigation {
+	float: right;
+	display: inline-block;
+	display: none;
+
+	vertical-align: middle;
+
+    @include respond_to('small') {
+        display: block;
+        }
+	}

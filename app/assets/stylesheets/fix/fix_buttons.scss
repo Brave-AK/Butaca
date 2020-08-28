@@ -1,0 +1,12 @@
+.btn-problem {
+	padding-left: 15px !important;
+	display: none;
+
+	&::before {
+		display: none;
+	}
+
+	.fix_buttons & {	
+		display: block;
+	}
+}

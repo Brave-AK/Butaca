@@ -1,0 +1,21 @@
+.row
+  .menu-sidebar
+    =render 'layouts/partials/sidebar'
+  .main-content
+    - if @featured_collection
+      .row
+        .col-md-12
+          %h3.title.main-title
+            = @featured_collection.collection_name
+            by
+            %span.auth
+              = link_to(@featured_collection.user.username, user_show_path(@featured_collection.user.id))
+        .fix_wrapper-tiles.element-5-padding
+          -(@featured_collection.titles.order_by_position-Title.in_removals(current_user)).each do |title|
+            =render 'titles/title', title: title
+
+    .row.home-collection
+      .col-md-12
+        %h4.main-heading=t('collection')
+    .row.home-collection
+      =render @collections    

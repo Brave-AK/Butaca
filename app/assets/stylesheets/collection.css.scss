@@ -1,0 +1,129 @@
+@import 'helpers/variables_colors';
+
+.collection-item {
+	.info-block {
+		font-family: "Open Sans", "Maven Pro";
+		height: 100px;
+		padding: 15px 16px 15px 16px;
+		background: none repeat scroll 0 0 #262c31;
+		border-radius: 0 0 5px 5px;
+
+		.collection-name {
+			padding: 0px;
+			line-height: 20px;
+			padding-bottom: 10px;
+			& > a {
+				color: #cccccc;
+				font-weight: 500;
+
+				span.by_author {
+					font-weight: 300;
+					font-size: 16px;
+					color: #787878;
+				}
+			}
+
+
+
+		}
+
+		.collection-description {
+			font-size: 14px;
+			line-height: 16px;
+		}
+	}
+}
+
+.collection-item .info-block .collection-name,
+.collection-show .main-buttons {
+			.follow-button-wrapper {
+			    position: absolute;
+			    right: 0px;
+			    top: -36px;
+			    &:hover {
+				    a.addCollection {
+				    	&.followed {
+				    		display: none !important;
+				    	}
+
+				    	&.unfollow {
+				    		display: inline-block;
+				    	}
+				    }
+				}
+			}
+			
+			a.addCollection {
+				color: #ffffff;
+				font-weight: 500;
+				text-decoration: none;
+				width: 120px;
+				text-align: center;
+				padding: 10px 0px;
+				display: inline-block;
+				font-family: "Open Sans", "Maven Pro" ;
+				line-height: 22px;
+				border-radius: 50px;
+				border-top-left-radius: 50px;
+    		border-top-right-radius: 50px;
+    		border-bottom-left-radius: 50px;
+    		border-bottom-right-radius: 50px;
+    		/* Prevent background color leak outs */
+				-webkit-background-clip: padding-box; 
+				-moz-background-clip: padding; 
+				background-clip: padding-box;
+				cursor: pointer;
+
+				&:hover {
+					text-decoration: none;
+				}
+
+				&.followed{
+					background: #efecec;
+					color: #cccccc;
+					line-height: 22px;
+					width: 140px;
+
+
+					&:before {
+						content: "\e804";
+						color: $color--text--blue;
+						font-family: 'butaca';
+						font-size: 21px;
+						top: 3px;
+						padding-right: 7px;
+						vertical-align: sub;
+					}
+
+					
+				}
+
+				&.unfollow {
+					background: #ececec;
+					color: $color--text--blue;;
+					line-height: 22px;
+					width: 140px;
+					display: none;
+
+
+					&:before {
+						content: "\e808";
+						color: $color--text--blue;
+						font-family: 'butaca';
+						font-size: 21px;
+						top: 3px;
+						padding-right: 7px;
+						vertical-align: sub;
+					}
+
+				}
+			}
+}
+
+.collection-show .main-buttons {
+	.follow-button-wrapper {
+		position: initial;
+    right: 0px;
+    top: 0px;
+	}
+}

@@ -1,0 +1,145 @@
+/**
+ * Redefine font-face with font-url() , this function is provided by sass-rails.
+ */
+
+/* FontAwesome */
+
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+/* Simple-Line-Icons */
+
+@font-face {
+  font-family: 'Simple-Line-Icons';
+  src:font-url('simple-line-icons/fonts/Simple-Line-Icons.eot');
+  src:font-url('simple-line-icons/fonts/Simple-Line-Icons.eot?#iefix') format('embedded-opentype'),
+    font-url('simple-line-icons/fonts/Simple-Line-Icons.woff') format('woff'),
+    font-url('simple-line-icons/fonts/Simple-Line-Icons.ttf') format('truetype'),
+    font-url('simple-line-icons/fonts/Simple-Line-Icons.svg#Simple-Line-Icons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Weather Icons */
+
+@font-face {
+  font-family: 'weathericons';
+  src: font-url('weather-icons/font/weathericons-regular-webfont.eot');
+  src: font-url('weather-icons/font/weathericons-regular-webfont.eot?#iefix') format('embedded-opentype'), font-url('weather-icons/font/weathericons-regular-webfont.woff') format('woff'), font-url('weather-icons/font/weathericons-regular-webfont.ttf') format('truetype'), font-url('weather-icons/font/weathericons-regular-webfont.svg#weathericons-regular-webfontRg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Futura Medium */
+// @font-face {
+//   font-family: 'futura-medium';
+//   src: url('/assets/futura-medium-webfont.eot');
+//   src: url('/assets/futura-medium-webfont.eot?#iefix') format('embedded-opentype'),
+//        url('/assets/futura-medium-webfont.woff2') format('woff2'),
+//        url('/assets/futura-medium-webfont.woff') format('woff'),
+//        url('/assets/futura-medium-webfont.ttf') format('truetype'),
+//        url('/assets/futura-medium-webfont.svg#futura-mediumregular') format('svg');
+//   font-weight: normal;
+//   font-style: normal;
+
+// }
+
+/* Icons */
+@font-face {
+  font-family: 'butaca';
+  src:font-url('icons-butaca.eot?k8766q');
+  src:font-url('icons-butaca.eot?k8766q#iefix') format('embedded-opentype'),
+  font-url('icons-butaca.woff2?k8766q') format('woff2'),
+  font-url('icons-butaca.ttf?k8766q') format('truetype'),
+  font-url('icons-butaca.woff?k8766q') format('woff'),
+  font-url('icons-butaca.svg?k8766q#icons-butaca') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  font-family: 'butaca';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-account-circle:before {
+  content: "\e800";
+}
+.icon-account:before {
+  content: "\e801";
+}
+.icon-arrow-left:before {
+  content: "\e802";
+}
+.icon-bell-outline:before {
+  content: "\e803";
+}
+.icon-check:before {
+  content: "\e804";
+}
+.icon-chevron-down:before {
+  content: "\e805";
+}
+.icon-chevron-left:before {
+  content: "\e806";
+}
+.icon-chevron-right:before {
+  content: "\e807";
+}
+.icon-close:before {
+  content: "\e808";
+}
+.icon-dollar:before {
+  content: "\e809";
+}
+.icon-eye:before {
+  content: "\e80a";
+}
+.icon-facebook:before {
+  content: "\e80b";
+}
+.icon-flag-variant:before {
+  content: "\e80c";
+}
+.icon-hand:before {
+  content: "\e80d";
+}
+.icon-heart:before {
+  content: "\e80e";
+}
+.icon-information-outline:before {
+  content: "\e80f";
+}
+.icon-magnify:before {
+  content: "\e810";
+}
+.icon-menu-down:before {
+  content: "\e811";
+}
+.icon-play:before {
+  content: "\e812";
+}
+.icon-playlist-plus:before {
+  content: "\e813";
+}
+.icon-playlist-remove:before {
+  content: "\e814";
+}
+.icon-settings:before {
+  content: "\e815";
+}
+.icon-shutdown:before {
+  content: "\e816";
+}
+.icon-star:before {
+  content: "\e817";
+}

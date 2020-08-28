@@ -1,0 +1,87 @@
+.row
+  .menu-sidebar
+    =render 'layouts/partials/sidebar'
+  .main-content
+    .row
+      .col-md-12
+        %h3.title.main-title.search-title
+          =t('results_for')
+          - if params[:q][:film_title_or_actors_or_director_cont]
+            %span.search-term
+              ="\"#{params[:q][:film_title_or_actors_or_director_cont]}\""
+          %span.suggest-film
+            - if @titles.any?
+              (#{t('user_suggests_a_film')}
+              %a{:data=>{:toggle=>"modal", :target=>"#submitMovieModal"}}
+                = t('here')
+              )     
+      - if @titles.any?
+        .fix_wrapper-tiles.element-5-padding
+          -@titles.each do |title|
+            =render 'titles/title', title: title
+      - else
+        %div.col-md-12
+          =t('no_results')
+        .col-md-12.add-film-button
+          %a.submit-new-film{:data=>{:toggle=>"modal", :target=>"#submitMovieModal"}}
+            = t('send_request_to_add_movie')
+
+.modal.fade{:id=> 'submitMovieModal'}
+  .modal-dialog
+    .modal-content
+      .modal-body
+        %h4
+          =t('add_film_title')
+          %button{:type=>"button", :class=>"close", 'data-dismiss'=>"modal", 'aria-label'=>"Close"}
+            %span{'aria-hidden'=>"true"}
+              &times;
+        =simple_form_for("add_a_film", url: '/add_a_film', remote: true) do |f|
+          =f.input :film_name, label: false, placeholder: t('film_name')
+          =f.input :approximate_year, label: false, required: false,input_html:{class: "calendar"}, as: :integer, placeholder: t('year_aprox')
+          =f.input :comment, label: false, as: :text,placeholder: t('film_comment'), required: false, input_html: {rows: 3}
+          =f.submit t('send'), class: "btn btn-danger"
+.modal.fade{:id=> 'submittedModal'}
+  .modal-dialog
+    .modal-content
+      .modal-body
+        %h4
+          =t('submitted_modal_title')
+          %button{:type=>"button", :class=>"close", 'data-dismiss'=>"modal", 'aria-label'=>"Close"}
+            %span{'aria-hidden'=>"true"}
+              &times;
+        .big-logo
+          =image_tag('butacaChairOnly.png', :alt => "logo", :height => "160", :width => "160")
+        .response-to-submitted
+          ='Nearest time our specialist will try to add that movie to our database. When requested movie will be added you’ll get notification to your mail'
+
+
+/ .tm-block.tm-block-main
+/   .uk-container.uk-container-center
+/     .tm-middle.uk-grid{"data-uk-grid-margin" => "", "data-uk-grid-match" => ""}
+/       .tm-main.uk-width-medium-1-1
+/         %main.tm-content
+/           %article.uk-article
+/             %h1=t('search_result')
+/             %div
+/               .fabrikDataContainer.filmstrip.homefilmstrip
+/                 #list_34_com_content_34
+/                   .fabrik_groupdata
+/                     .uk-grid
+/                       -if @titles.any?
+/                         -(@titles-Title.in_removals(current_user)).each do |title|
+/                           .block{id: "title-#{title.id}"}
+/                             =render 'titles/title', title: title
+/                       -else
+/                         =t('no_results')
+/                         -if current_user
+/                           =t('add_title_question')
+/                           =button_tag t('yes_asnwer'), id: "add_a_film", class: "btn btn-danger"
+/                     %br/
+/                   .filmstrip_footer
+/                     .fabrik___heading
+/                       %span
+/                         .fabrikNav
+/               %br/
+/               %br/
+/               %br/
+/               %br/

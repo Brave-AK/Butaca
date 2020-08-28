@@ -1,0 +1,7 @@
+%div.follow-button-wrapper{:id=>"collection-#{collection.id}-follow-wrapper"}   
+  -if current_user
+    =link_to follow_button_text(current_user, collection), follow_collection_path(collection), id: "collection_#{collection.id}", class: follow_button_class(current_user, collection), remote: true
+    - if current_user.follow_collection?(collection.id) 
+      =link_to t('unfollow'), follow_collection_path(collection), id: "collection_#{collection.id}", class: "addCollection follow_btn follow-button-#{collection.slug} unfollow", remote: true  
+  -else
+    =link_to t('follow'), new_user_registration_path(feature: true), class: follow_button_class(current_user, collection)

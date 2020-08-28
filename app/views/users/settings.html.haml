@@ -1,0 +1,89 @@
+.row
+  .menu-sidebar
+    =render 'layouts/partials/sidebar'
+  .main-content.my-profile.settings
+    .container-fluid
+      .row.top-block-info
+        .col-md-12
+          = link_to '', my_profile_path, class: 'profile-link link'
+          = link_to '', logout_path, class: 'logout-link link'	
+          .row.image-row
+            .col-md-2.col-md-offset-5
+              .profile-image-upload
+                = file_field_tag :avatar, data: {path: upload_avatar_path}
+                .profile-image
+                  = image_tag(current_user.avatar.url(:medium))
+                %a.upload-button	  
+          .row
+            .col-md-8.col-md-offset-2.info-content
+              .full-name
+                = current_user.name
+              .address
+                = current_user.country.try(:country)
+              .description 
+                = current_user.bio
+    .row
+      .col-md-6.col-md-offset-3.form-container
+        .row
+          .col-md-12.title-container
+            %h3.title.main-title
+              =t('about_me')
+            %hr.color-mark  
+        .row
+          .col-md-12    
+            = simple_form_for current_user, method: :post, url: user_update_path, html: { multipart: true }, layout: :horizontal, label_col: 'col-sm-2', control_col: 'col-sm-4' do |f|
+              .row
+                .col-md-12
+                  .errors
+                    = current_user.errors.full_messages.join(';')
+              .row
+                .col-md-6
+                  = f.input :first_name, required: false, label: t('first_name'), placeholder: t('enter_first_name')
+                .col-md-6
+                  = f.input :last_name, required: false, label: t('last_name'), placeholder: t('enter_last_name')
+              .row
+                .col-md-12
+                  = f.input :country_id, required: false, label: t('country'), placeholder: 'Country', collection: Country.all, label_method: :country
+
+              .row.description
+                .col-md-12
+                  = f.input :bio, required: false, label: t('description'), placeholder: t('describe_yourself') 
+              .row
+                .col-md-12.title-container
+                  %h3.title.main-title
+                    =t('password')
+                  %hr.color-mark            
+              .row
+                .col-md-6
+                  = f.input :password, required: false, label: t('password'), placeholder: t('enter_new_password')
+                .col-md-6
+                  = f.input :password_confirmation, required: false, label: t('password_confirmation'), placeholder: t('repeat_new_password')
+
+              .row
+                .col-md-12.title-container
+                  %h3.title.main-title
+                    =t('notifications')
+                  %hr.color-mark            
+              .row
+                .col-md-12
+                  .custom-radio{'data'=>{'input'=> 'user[notification_preferences]'}}
+                    = f.input :notification_preferences, as: :hidden
+                    - ["daily", "weekly", "none"].each do |option|
+                      %a.custom-chek-option{'data'=>{'value'=> option}}
+                        =t(option)
+              .row
+                .col-md-12.title-container
+                  %h3.title.main-title.empty
+              .row
+                .col-md-12
+                  %button.update
+                    =t('update')
+                  %hr      
+              .row
+                .col-md-12
+                  %div.cancel-acc
+                    %span    
+                      ="#{t('unhappy')}?"
+                    = link_to t(:cancel_account), user_profile_path(current_user)
+              
+                

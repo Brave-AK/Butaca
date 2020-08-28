@@ -1,0 +1,6 @@
+@import 'mixins_breakpoints';
+
+@mixin fs($value) {
+	font-size: $value + px;
+	font-size: $value/10 + rem;
+}

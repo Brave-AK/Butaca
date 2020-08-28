@@ -1,0 +1,8 @@
+= form_for resource, url: 'user_setting_path', html: { multipart: true }, layout: :horizontal, label_col: 'col-sm-2', control_col: 'col-sm-4' do |f|
+  = current_user.email
+  = f.fields_for :profile do |n|
+    = n.text_field :name, autofocus: true
+    = n.file_field :avatar
+  = f.check_box :notification_preferences, collection: ["daily", "weekly", "none"]
+  = f.submit "update"
+  = link_to t(:cancel), user_profile_path(current_user), class: 'btn btn-default'

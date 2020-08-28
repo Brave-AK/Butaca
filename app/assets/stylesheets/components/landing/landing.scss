@@ -1,0 +1,10 @@
+@import 'settings';
+
+.landing {
+	max-width: $width--landing--max;
+	height: 100%;
+	margin: 0 auto;
+	position: relative;
+
+	overflow: auto;
+	}

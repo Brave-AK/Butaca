@@ -1,0 +1,13 @@
+.col-md-4.col-sm-12.padding-5.collection-item{ id: "collection-item-#{collection.id}"}
+  %p.uk-text-left.mtop
+    - if collection.image.present?
+      =link_to image_tag(collection.image.url(:custom), alt: collection.image.name), collection_path(collection)
+  %div.info-block    
+    %h3.uk-text-left.bottom-heading.collection-name
+      %a{:href => "#{collection_path(collection)}"}
+        = collection.collection_name
+        %span.by_author
+          #{t('collections.by')} #{User.find(collection.user_id).username}
+      = render 'collections/follow_button', collection: collection
+    %div.collection-description
+      = collection.collection_description_.try(:truncate, 90)
